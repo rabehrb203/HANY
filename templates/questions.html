@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}الأسئلة{% endblock %}
+
+{% block content %}
+<div class="questions-page">
+    <div class="questions-layout">
+        <div class="questions-sidebar">
+            <div class="content-card">
+                <div id="questions-section">
+                    <h2 class="section-title">الأسئلة</h2>
+                    <div id="questions-container">
+                    </div>
+                    
+                    <div class="navigation-controls">
+                        <button class="nav-btn prev-btn" id="prev-btn" disabled>السابق</button>
+                        <span id="question-counter" class="question-counter">1/15</span>
+                        <button class="nav-btn next-btn" id="next-btn">التالي</button>
+                    </div>
+                </div>
+
+                <div id="results-section" class="results-section" style="display: none;">
+                    <h2 class="section-title">النتائج</h2>
+                    <div class="results-content">
+                        <div class="result-item">
+                            <h4>مستوى النص:</h4>
+                            <p id="difficulty-level" class="result-value"></p>
+                        </div>
+                        
+                        <div class="result-item">
+                            <h4>مجموع النقاط:</h4>
+                            <p id="total-score" class="result-value"></p>
+                        </div>
+                        
+                        <div class="share-results">
+                            <h4>مشاركة النتائج</h4>
+                            <form id="share-form">
+                                <div class="form-group">
+                                    <input type="email" id="email" 
+                                           placeholder="البريد الإلكتروني" required>
+                                </div>
+                                <button type="submit" class="submit-btn">مشاركة النتائج</button>
+                            </form>
+                        </div>
+                        
+                        <button id="restart-btn" class="restart-btn">
+                            بدء تقييم جديد
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pdf-section">
+            <div class="content-card">
+                <h2 class="section-title">النص المحمل</h2>
+                <div class="pdf-viewer-container">
+                    <iframe id="pdf-viewer" style="width: 100%; height: 600px; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+        
+   
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/questions.js') }}"></script>
+{% endblock %}
